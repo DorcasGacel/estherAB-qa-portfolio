@@ -1,2 +1,10 @@
 # estherAB-qa-portfolio
-QA Portfolio Project based on Automation Exercise. Manual Testing, API Testing, Scrum and Cypress Automation.
+Proyecto de portafolio QA enfocado en:
+- Scrum
+- Jira
+- Testing Manual
+- API Testing
+- Cypress Automation
+
+Sistema bajo prueba:
+https://automationexercise.com
