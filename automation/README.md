@@ -1,4 +1,5 @@
 # Cypress Automation
 
-Smoke Tests
-Regression Tests
+- Smoke Tests
+- Regression Tests
+- E2E
