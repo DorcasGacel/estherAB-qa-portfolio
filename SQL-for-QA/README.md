@@ -8,21 +8,21 @@ El objetivo de este módulo es aprender y aplicar consultas SQL básicas para va
 
 ## Estructura de la base de datos (simulada)
 ### Tabla: users
-id
-name
-email
-password
-status
+- id
+- name
+- email
+- password
+- status
 ### Tabla: orders
-id
-user_id
-total
+- id
+- user_id
+- total
 ## Consultas SQL aplicadas
 ### SELECT — Obtener todos los datos
 SELECT * FROM users;
 ### WHERE — Filtrar datos específicos
 SELECT * FROM users
-WHERE email = 'ana@mail.com';
+WHERE email = 'ana@gmail.com';
 ### COUNT — Contar registros
 SELECT COUNT(*) FROM users;
 ### INNER JOIN — Relación entre tablas
