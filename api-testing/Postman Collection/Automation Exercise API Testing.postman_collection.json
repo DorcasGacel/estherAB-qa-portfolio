@@ -1,0 +1,591 @@
+{
+  "info": {
+    "_postman_id": "fc544e68-ba72-4739-8114-430f65f072c6",
+    "name": "Automation Exercise API Testing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55468386"
+  },
+  "item": [
+    {
+      "name": "Product APIs",
+      "item": [
+        {
+          "name": "TC-API-001 Get All Products",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Products list exists\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.products).to.exist;\r",
+                  "\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Products array is not empty\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.products.length).to.be.above(0);\r",
+                  "\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://automationexercise.com/api/productsList",
+              "protocol": "https",
+              "host": [
+                "automationexercise",
+                "com"
+              ],
+              "path": [
+                "api",
+                "productsList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC-API-002 Get Product Detail",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Products list exists\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.products).to.exist;\r",
+                  "\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Products array is not empty\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.products.length).to.be.above(0);\r",
+                  "\r",
+                  "});\r",
+                  "pm.test(\"First product has id\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.products[0].id).to.exist;\r",
+                  "\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"First product has name\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.products[0].name).to.exist;\r",
+                  "\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"First product has price\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.products[0].price).to.exist;\r",
+                  "\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"First product has brand\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.products[0].brand).to.exist;\r",
+                  "\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"First product has category\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.products[0].category).to.exist;\r",
+                  "\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://automationexercise.com/api/productsList",
+              "protocol": "https",
+              "host": [
+                "automationexercise",
+                "com"
+              ],
+              "path": [
+                "api",
+                "productsList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC-API-003 Search Product",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "search_product",
+                  "value": "top",
+                  "type": "text",
+                  "uuid": "8ca179aa-ae07-4cdb-b8ae-6d3758518392"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/searchProduct",
+              "protocol": "https",
+              "host": [
+                "automationexercise",
+                "com"
+              ],
+              "path": [
+                "api",
+                "searchProduct"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC-API-004 Search Product Empty Input",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "search_product",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1c61ca4e-f9b1-41c4-b1d1-c4123fd230d5"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/searchProduct",
+              "protocol": "https",
+              "host": [
+                "automationexercise",
+                "com"
+              ],
+              "path": [
+                "api",
+                "searchProduct"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC-API-005 Search Product Missing Parameter",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response code should be 400\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(400);\r",
+                  "\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Error message is displayed\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.message).to.include(\"search_product parameter is missing\");\r",
+                  "\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "https://automationexercise.com/api/searchProduct",
+              "protocol": "https",
+              "host": [
+                "automationexercise",
+                "com"
+              ],
+              "path": [
+                "api",
+                "searchProduct"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User APIs",
+      "item": [
+        {
+          "name": "TC-API-006 Verify Login User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response code is 200\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(200);\r",
+                  "\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"User exists message is displayed\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.message).to.eql(\"User exists!\");\r",
+                  "\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "lili123@gmail.com",
+                  "type": "text",
+                  "uuid": "72e017ab-fa06-4717-adef-e1391dc0405e"
+                },
+                {
+                  "key": "password",
+                  "value": "123321lili",
+                  "type": "text",
+                  "uuid": "9a09c4a9-4d68-45d4-830f-1d51a074e8b9"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/verifyLogin",
+              "protocol": "https",
+              "host": [
+                "automationexercise",
+                "com"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC-API-007 Verify Login Invalid Credentials",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response code is 404\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(404);\r",
+                  "\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"User not found message is displayed\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.message).to.eql(\"User not found!\");\r",
+                  "\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "lili123@gmail.com",
+                  "type": "text",
+                  "uuid": "0e7cf061-1a46-43b6-b3ce-55928a7bd415"
+                },
+                {
+                  "key": "password",
+                  "value": "password12356",
+                  "type": "text",
+                  "uuid": "51b32088-0a47-4486-88c7-ca40c259cff6"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/verifyLogin",
+              "protocol": "https",
+              "host": [
+                "automationexercise",
+                "com"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC-API-008 Register User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response code is 201\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(201);\r",
+                  "\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"User created message is displayed\", function () {\r",
+                  "\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "\r",
+                  "    pm.expect(jsonData.message).to.eql(\"User created!\");\r",
+                  "\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "Mary",
+                  "type": "text",
+                  "uuid": "610ecd3b-7cc1-4694-aa74-1001b05170b5"
+                },
+                {
+                  "key": "email",
+                  "value": "marytester@qatester.com",
+                  "type": "text",
+                  "uuid": "f6949494-20b8-4d6c-abf2-a4e7299622ba"
+                },
+                {
+                  "key": "password",
+                  "value": "Mary12345",
+                  "type": "text",
+                  "uuid": "e79969ff-6a96-433e-912d-7e920cb8cfab"
+                },
+                {
+                  "key": "title",
+                  "value": "Mr",
+                  "type": "text",
+                  "uuid": "bf6c347e-82fe-4fdb-9d1d-a787c50a0d14"
+                },
+                {
+                  "key": "birth_date",
+                  "value": "22",
+                  "type": "text",
+                  "uuid": "90dd62da-68dc-42c5-adfd-b52e96de8f7c"
+                },
+                {
+                  "key": "birt_month",
+                  "value": "June",
+                  "type": "text",
+                  "uuid": "33ac2163-ab61-4a55-ac87-ba0ebad2a0f2"
+                },
+                {
+                  "key": "birth_year",
+                  "value": "2000",
+                  "type": "text",
+                  "uuid": "fcb4f5d5-a815-4767-8f9a-8147d35cc4be"
+                },
+                {
+                  "key": "firstname",
+                  "value": "Mary",
+                  "type": "text",
+                  "uuid": "0dd90756-b48c-4e45-bc2d-cabbb87eef33"
+                },
+                {
+                  "key": "lastname",
+                  "value": "Qatester",
+                  "type": "text",
+                  "uuid": "5ba0e180-0102-40ad-94f4-05f8cbc7f456"
+                },
+                {
+                  "key": "company",
+                  "value": "QA Company",
+                  "type": "text",
+                  "uuid": "f280178b-0942-4287-adcf-bb3ba65579d2"
+                },
+                {
+                  "key": "address1",
+                  "value": "test Address",
+                  "type": "text",
+                  "uuid": "fa43a559-7eda-4312-8a0c-dc9343db6368"
+                },
+                {
+                  "key": "country",
+                  "value": "Peru",
+                  "type": "text",
+                  "uuid": "54b15975-ce2d-48c6-9635-329278bb6b23"
+                },
+                {
+                  "key": "zipcode",
+                  "value": "12345",
+                  "type": "text",
+                  "uuid": "eafc79b6-457a-4f69-b012-d41ca72e352c"
+                },
+                {
+                  "key": "state",
+                  "value": "Lima",
+                  "type": "text",
+                  "uuid": "d42e8e2a-a782-45bb-bd64-c710da2c8fdb"
+                },
+                {
+                  "key": "city",
+                  "value": "Lima",
+                  "type": "text",
+                  "uuid": "c93c065b-9bf0-45d8-9204-9da3c203e5e2"
+                },
+                {
+                  "key": "mobile_number",
+                  "value": "900898123",
+                  "type": "text",
+                  "uuid": "fbad4c37-4ece-44b4-953d-46431753b1bb"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/createAccount",
+              "protocol": "https",
+              "host": [
+                "automationexercise",
+                "com"
+              ],
+              "path": [
+                "api",
+                "createAccount"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC-API-009 Delete User Account",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "marytester@qatester.com",
+                  "type": "text",
+                  "uuid": "6e3e73c9-6aed-45c9-aaed-cd2198cb7bb6"
+                },
+                {
+                  "key": "password",
+                  "value": "Mary12345",
+                  "type": "text",
+                  "uuid": "2a629ef8-0c6d-4766-8929-17f37542bdd5"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/deleteAccount",
+              "protocol": "https",
+              "host": [
+                "automationexercise",
+                "com"
+              ],
+              "path": [
+                "api",
+                "deleteAccount"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
